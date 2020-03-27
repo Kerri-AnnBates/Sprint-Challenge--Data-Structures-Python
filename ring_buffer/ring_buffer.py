@@ -18,24 +18,18 @@ class RingBuffer:
 
             # set current to the oldest item
             self.current = self.storage.head
-            print(self.current.value)
+
         else:
             if self.current.next:  # If not the tail
                 # overwrite the oldest item which is initially the head (current)
                 next_node = self.current.next
-                print("next node:", next_node.value)
-                print("item:", item)
-                self.current.insert_before(item)
-                print("current node after inser_before:", self.current.value)
-                # self.current.delete()
-                # self.storage.delete(self.current)
+                self.current.value = item
                 self.current = next_node
 
             else:
+                # if tail make the next node the head
                 next_node = self.storage.head
-
-                self.current.insert_before(item)
-                self.storage.delete(self.current)
+                self.current.value = item
                 self.current = next_node
 
     def get(self):
