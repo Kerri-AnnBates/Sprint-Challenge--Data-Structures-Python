@@ -58,10 +58,3 @@ class ArrayRingBuffer:
 
 	def get(self):
 		pass
-
-
-# Set current to the oldest item
-# if current is not the tail
-# set the next storage item to current
-#  set the prev to the new item
-#  set storage.next to storage.next.next
